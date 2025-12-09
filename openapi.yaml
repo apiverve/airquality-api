@@ -1,0 +1,74 @@
+openapi: 3.0.4
+info:
+  title: Air Quality
+  description: Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/airquality:
+    get:
+      summary: Get Air Quality
+      description: Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.
+      operationId: airquality
+      parameters:
+      - name: city
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The city name for which you want to get the air quality data (e.g., New York)
+        example: San Francisco
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  pm2_5: 25.345
+                  pm10: 32.005
+                  us-epa-index: 2
+                  gb-defra-index: 3
+                  carbonMonoxide: 745.55
+                  ozone: 47
+                  nitrogenDioxide: 54.02
+                  sulfurdioxide: 4.625
+                  recommendation: The air quality in San Francisco is good. It is safe to go outside.
+                  city: San Francisco
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []
