@@ -1,32 +1,36 @@
 openapi: 3.0.4
 info:
   title: Air Quality
-  description: Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.
+  description: >-
+    Air Quality is a simple tool for getting air quality data. It returns the
+    air quality index, o3, pm2, and more.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/airquality:
     get:
-      summary: Get Air Quality
-      description: Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.
+      summary: Get Air Quality by City
+      description: Get the air quality data for a city
       operationId: airquality
       parameters:
-      - name: city
-        in: query
-        schema:
-          type: string
-        required: true
-        description: The city name for which you want to get the air quality data (e.g., New York)
-        example: San Francisco
+        - name: city
+          in: query
+          schema:
+            type: string
+          required: true
+          description: >-
+            The city name for which you want to get the air quality data (e.g.,
+            New York)
+          example: San Francisco
       responses:
         '200':
           description: Successful Response
@@ -42,28 +46,30 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
-                  pm2_5: 25.345
-                  pm10: 32.005
-                  us-epa-index: 2
-                  gb-defra-index: 3
-                  carbonMonoxide: 745.55
-                  ozone: 47
-                  nitrogenDioxide: 54.02
-                  sulfurdioxide: 4.625
-                  recommendation: The air quality in San Francisco is good. It is safe to go outside.
+                  pm2_5: 16.75
+                  pm10: 18.85
+                  carbonMonoxide: 387.85
+                  ozone: 9
+                  nitrogenDioxide: 38.55
+                  sulfurdioxide: 5.95
+                  usEpaIndex: 2
+                  gbDefraIndex: 2
+                  recommendation: >-
+                    The air quality in San Francisco is good. It is safe to go
+                    outside.
                   city: San Francisco
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
 components:
   securitySchemes:
     api_key:
@@ -71,4 +77,4 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
