@@ -10,20 +10,14 @@ if os.path.exists(requirements_file):
 
 setup(
     name='apiverve_airquality',
-    version='1.1.12',
+    version='1.1.13',
     packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
     description='Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.',
     author='APIVerve',
     author_email='hello@apiverve.com',
-    url='https://apiverve.com',
-    project_urls={
-        'Homepage': 'https://apiverve.com',
-        'Documentation': 'https://docs.apiverve.com/ref/airquality',
-        'Source': 'https://github.com/apiverve/airquality-api',
-        'Bug Tracker': 'https://github.com/apiverve/airquality-api/issues'
-    },
+    url='https://airquality.apiverve.com?utm_source=pypi&utm_medium=homepage',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',
