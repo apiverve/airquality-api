@@ -225,8 +225,9 @@ from apiverve_airquality.apiClient import AirqualityAPIClient
 
 api = AirqualityAPIClient("[YOUR_API_KEY]")
 
+query = { "city": "San Francisco" }
+
 try:
-    query = { "city": "San Francisco" }
     result = api.execute(query)
     print(result)
 finally:
