@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/airquality",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.",
   "main": "index.js",
   "types": "index.d.ts",
