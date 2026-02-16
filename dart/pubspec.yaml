@@ -1,6 +1,6 @@
 name: apiverve_airquality
 description: Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.
-version: 1.1.13
+version: 1.1.14
 homepage: https://airquality.apiverve.com?utm_source=dart&utm_medium=homepage
 repository: https://github.com/apiverve/airquality-api/tree/main/dart
 
