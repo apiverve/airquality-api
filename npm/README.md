@@ -122,14 +122,14 @@ async function makeRequest() {
   "status": "ok",
   "error": null,
   "data": {
-    "pm2_5": 25.345,
-    "pm10": 32.005,
-    "us-epa-index": 2,
-    "gb-defra-index": 3,
-    "carbonMonoxide": 745.55,
-    "ozone": 47,
-    "nitrogenDioxide": 54.02,
-    "sulfurdioxide": 4.625,
+    "pm2_5": 16.75,
+    "pm10": 18.85,
+    "carbonMonoxide": 387.85,
+    "ozone": 9,
+    "nitrogenDioxide": 38.55,
+    "sulfurdioxide": 5.95,
+    "usEpaIndex": 2,
+    "gbDefraIndex": 2,
     "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
     "city": "San Francisco"
   }
