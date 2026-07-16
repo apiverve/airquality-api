@@ -191,11 +191,37 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Air Quality API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "pm2_5": 16.75,
+    "pm10": 18.85,
+    "carbonMonoxide": 387.85,
+    "ozone": 9,
+    "nitrogenDioxide": 38.55,
+    "sulfurdioxide": 5.95,
+    "usEpaIndex": 2,
+    "gbDefraIndex": 2,
+    "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
+    "city": "San Francisco"
+  }
 }
 ```
 
