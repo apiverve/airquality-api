@@ -25,38 +25,53 @@ namespace APIVerve.API.AirQuality
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
         [JsonProperty("pm2_5")]
-        public double Pm25 { get; set; }
+        public double? Pm25 { get; set; }
 
         [JsonProperty("pm10")]
-        public double Pm10 { get; set; }
-
-        [JsonProperty("us-epa-index")]
-        public long UsEpaIndex { get; set; }
-
-        [JsonProperty("gb-defra-index")]
-        public long GbDefraIndex { get; set; }
+        public double? Pm10 { get; set; }
 
         [JsonProperty("carbonMonoxide")]
-        public double CarbonMonoxide { get; set; }
+        public double? CarbonMonoxide { get; set; }
 
         [JsonProperty("ozone")]
-        public long Ozone { get; set; }
+        public long? Ozone { get; set; }
 
         [JsonProperty("nitrogenDioxide")]
-        public double NitrogenDioxide { get; set; }
+        public double? NitrogenDioxide { get; set; }
 
         [JsonProperty("sulfurdioxide")]
-        public double Sulfurdioxide { get; set; }
+        public double? Sulfurdioxide { get; set; }
+
+        [JsonProperty("usEpaIndex")]
+        public long? UsEpaIndex { get; set; }
+
+        [JsonProperty("gbDefraIndex")]
+        public long? GbDefraIndex { get; set; }
 
         [JsonProperty("recommendation")]
         public string Recommendation { get; set; }
 
         [JsonProperty("city")]
         public string City { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
