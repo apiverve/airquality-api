@@ -1,7 +1,7 @@
 {
   "name": "@apiverve/airquality",
-  "version": "1.2.0",
-  "description": "Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.",
+  "version": "1.2.2",
+  "description": "Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "air quality", "air quality data", "air quality api", "air quality data api", "air quality tool"
+    "air quality api", "air pollution api", "air quality index api", "aqi api", "free air quality api"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/airquality-api/issues"
   },
-  "homepage": "https://airquality.apiverve.com?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/airquality?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
