@@ -2,8 +2,10 @@ openapi: 3.0.4
 info:
   title: Air Quality
   description: >-
-    Air Quality is a simple tool for getting air quality data. It returns the
-    air quality index, o3, pm2, and more.
+    Air Quality is an air pollution API that reports particulate pollution
+    levels and health recommendations for any city or zip code. Look up PM2.5
+    and PM10 concentrations to check current air conditions; paid plans add
+    ozone, toxic gases, and EPA index scores.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -18,7 +20,7 @@ servers:
 paths:
   /v1/airquality:
     get:
-      summary: Get Air Quality by City
+      summary: Air Quality
       description: Get the air quality data for a city
       operationId: airquality
       parameters:
