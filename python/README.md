@@ -1,13 +1,12 @@
 Air Quality API
 ============
 
-Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.
+Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [Air Quality API](https://airquality.apiverve.com?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-airquality.svg)](https://pypi.org/project/apiverve-airquality/)
+
+This is a Python wrapper for the [Air Quality API](https://apiverve.com/marketplace/airquality?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-airquality
 
 ## Configuration
 
-Before using the airquality API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the Air Quality API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -60,7 +59,7 @@ except Exception as e:
 
 ## Usage
 
-The Air Quality API documentation is found here: [https://docs.apiverve.com/ref/airquality](https://docs.apiverve.com/ref/airquality?utm_source=pypi&utm_medium=readme).
+The Air Quality API documentation is found here: [https://docs.apiverve.com/ref/airquality](https://docs.apiverve.com/ref/airquality?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -102,14 +101,14 @@ print(result)
   "status": "ok",
   "error": null,
   "data": {
-    "pm2_5": 25.345,
-    "pm10": 32.005,
-    "us-epa-index": 2,
-    "gb-defra-index": 3,
-    "carbonMonoxide": 745.55,
-    "ozone": 47,
-    "nitrogenDioxide": 54.02,
-    "sulfurdioxide": 4.625,
+    "pm2_5": 16.75,
+    "pm10": 18.85,
+    "carbonMonoxide": 387.85,
+    "ozone": 9,
+    "nitrogenDioxide": 38.55,
+    "sulfurdioxide": 5.95,
+    "usEpaIndex": 2,
+    "gbDefraIndex": 2,
     "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
     "city": "San Francisco"
   }
@@ -239,7 +238,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -250,12 +249,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
