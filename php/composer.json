@@ -1,7 +1,7 @@
 {
     "name": "apiverve/airquality",
-    "description": "Air Quality is a simple tool for getting air quality data. It returns the air quality index, o3, pm2, and more.",
-    "version": "1.2.0",
+    "description": "Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,13 +15,13 @@
         "api",
         "apiverve",
         "airquality",
-        "air quality",
-        "air quality data",
         "air quality api",
-        "air quality data api",
-        "air quality tool"
+        "air pollution api",
+        "air quality index api",
+        "aqi api",
+        "free air quality api"
     ],
-    "homepage": "https://airquality.apiverve.com?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/airquality?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/airquality",
