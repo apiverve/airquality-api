@@ -46,7 +46,7 @@ final _formatPatterns = {
 
 /// Air Quality API client.
 ///
-/// For more information, visit: https://airquality.apiverve.com?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/airquality?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
 /// * [city] (required) - The city name for which you want to get the air quality data (e.g., New York)
