@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/airquality",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.",
   "main": "index.js",
   "types": "index.d.ts",
