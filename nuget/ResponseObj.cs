@@ -56,11 +56,44 @@ namespace APIVerve.API.AirQuality
         [JsonProperty("gbDefraIndex")]
         public long? GbDefraIndex { get; set; }
 
+        [JsonProperty("aqi")]
+        public long? Aqi { get; set; }
+
+        [JsonProperty("aqiCategory")]
+        public string AqiCategory { get; set; }
+
+        [JsonProperty("dominantPollutant")]
+        public string DominantPollutant { get; set; }
+
+        [JsonProperty("pollutantAqi")]
+        public PollutantAqi PollutantAqi { get; set; }
+
         [JsonProperty("recommendation")]
         public string Recommendation { get; set; }
 
         [JsonProperty("city")]
         public string City { get; set; }
+    }
+
+    public partial class PollutantAqi
+    {
+        [JsonProperty("pm2_5")]
+        public long? Pm25 { get; set; }
+
+        [JsonProperty("pm10")]
+        public long? Pm10 { get; set; }
+
+        [JsonProperty("ozone")]
+        public long? Ozone { get; set; }
+
+        [JsonProperty("carbonMonoxide")]
+        public long? CarbonMonoxide { get; set; }
+
+        [JsonProperty("sulfurdioxide")]
+        public long? Sulfurdioxide { get; set; }
+
+        [JsonProperty("nitrogenDioxide")]
+        public long? NitrogenDioxide { get; set; }
     }
 
     public partial class Premium

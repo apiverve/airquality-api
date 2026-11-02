@@ -1,7 +1,7 @@
 Air Quality API
 ============
 
-Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.
+Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, EPA and DEFRA index scores, and an estimated 0-500 US AQI with its category and dominant pollutant.
 
 
 [![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.AirQuality.svg)](https://www.nuget.org/packages/APIVerve.API.AirQuality)
@@ -60,7 +60,8 @@ class Program
         var apiClient = new AirQualityAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new AirQualityQueryOptions {
-            City = "San Francisco"
+            City = "San Francisco",
+            Aqi = true
         };
 
         // Make the API call
@@ -124,7 +125,8 @@ public class Example
         var apiClient = new AirQualityAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new AirQualityQueryOptions {
-            City = "San Francisco"
+            City = "San Francisco",
+            Aqi = true
         };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -156,7 +158,8 @@ public class Example
         var apiClient = new AirQualityAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new AirQualityQueryOptions {
-            City = "San Francisco"
+            City = "San Francisco",
+            Aqi = true
         };
 
         var response = apiClient.Execute(queryOptions);
@@ -193,7 +196,8 @@ public class Example
         var apiClient = new AirQualityAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new AirQualityQueryOptions {
-            City = "San Francisco"
+            City = "San Francisco",
+            Aqi = true
         };
 
         try
@@ -249,7 +253,8 @@ public class Example
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
         var queryOptions = new AirQualityQueryOptions {
-            City = "San Francisco"
+            City = "San Francisco",
+            Aqi = true
         };
 
         try
@@ -290,7 +295,8 @@ apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
 var queryOptions = new AirQualityQueryOptions {
-    City = "San Francisco"
+    City = "San Francisco",
+    Aqi = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -316,7 +322,8 @@ apiClient.SetLogger(message =>
 });
 
 var queryOptions = new AirQualityQueryOptions {
-    City = "San Francisco"
+    City = "San Francisco",
+    Aqi = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -334,7 +341,8 @@ apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
 var queryOptions = new AirQualityQueryOptions {
-    City = "San Francisco"
+    City = "San Francisco",
+    Aqi = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -346,7 +354,8 @@ The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
 var queryOptions = new AirQualityQueryOptions {
-    City = "San Francisco"
+    City = "San Francisco",
+    Aqi = true
 };
 
 using (var apiClient = new AirQualityAPIClient("[YOUR_API_KEY]"))
@@ -374,7 +383,18 @@ using (var apiClient = new AirQualityAPIClient("[YOUR_API_KEY]"))
     "sulfurdioxide": 5.95,
     "usEpaIndex": 2,
     "gbDefraIndex": 2,
-    "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
+    "aqi": 65,
+    "aqiCategory": "Moderate",
+    "dominantPollutant": "pm2_5",
+    "pollutantAqi": {
+      "pm2_5": 65,
+      "pm10": 17,
+      "ozone": 4,
+      "carbonMonoxide": 3,
+      "sulfurdioxide": 3,
+      "nitrogenDioxide": 19
+    },
+    "recommendation": "The air quality in San Francisco is moderate. It is generally safe to go outside, but unusually sensitive individuals may experience health effects.",
     "city": "San Francisco"
   }
 }

@@ -15,5 +15,11 @@ namespace APIVerve.API.AirQuality
         /// </summary>
         [JsonProperty("city")]
         public string City { get; set; }
+
+        /// <summary>
+        /// Include the estimated 0-500 US AQI, its category, the dominant pollutant and the index for each pollutant
+        /// </summary>
+        [JsonProperty("aqi")]
+        public bool? Aqi { get; set; }
     }
 }
