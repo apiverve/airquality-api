@@ -1,7 +1,7 @@
 Air Quality API
 ============
 
-Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.
+Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, EPA and DEFRA index scores, and an estimated 0-500 US AQI with its category and dominant pollutant.
 
 
 [![PyPI version](https://img.shields.io/pypi/v/apiverve-airquality.svg)](https://pypi.org/project/apiverve-airquality/)
@@ -43,7 +43,10 @@ from apiverve_airquality.apiClient import AirqualityAPIClient
 # Initialize the client with your APIVerve API key
 api = AirqualityAPIClient("[YOUR_API_KEY]")
 
-query = { "city": "San Francisco" }
+query = {
+    "city": "San Francisco",
+    "aqi": true
+}
 
 try:
     # Make the API call
@@ -81,7 +84,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "city": "San Francisco" }
+query = {
+    "city": "San Francisco",
+    "aqi": true
+}
 ```
 
 ###### Simple Request
@@ -109,7 +115,18 @@ print(result)
     "sulfurdioxide": 5.95,
     "usEpaIndex": 2,
     "gbDefraIndex": 2,
-    "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
+    "aqi": 65,
+    "aqiCategory": "Moderate",
+    "dominantPollutant": "pm2_5",
+    "pollutantAqi": {
+      "pm2_5": 65,
+      "pm10": 17,
+      "ozone": 4,
+      "carbonMonoxide": 3,
+      "sulfurdioxide": 3,
+      "nitrogenDioxide": 19
+    },
+    "recommendation": "The air quality in San Francisco is moderate. It is generally safe to go outside, but unusually sensitive individuals may experience health effects.",
     "city": "San Francisco"
   }
 }
@@ -128,7 +145,10 @@ from apiverve_airquality.apiClient import AirqualityAPIClient, AirqualityAPIClie
 
 api = AirqualityAPIClient("[YOUR_API_KEY]")
 
-query = { "city": "San Francisco" }
+query = {
+    "city": "San Francisco",
+    "aqi": true
+}
 
 try:
     result = api.execute(query)
@@ -149,7 +169,10 @@ from apiverve_airquality.apiClient import AirqualityAPIClient, AirqualityAPIClie
 
 api = AirqualityAPIClient("[YOUR_API_KEY]")
 
-query = { "city": "San Francisco" }
+query = {
+    "city": "San Francisco",
+    "aqi": true
+}
 
 try:
     result = api.execute(query)
@@ -183,7 +206,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_airquality.apiClient import AirqualityAPIClient, AirqualityAPIClientError
 
-query = { "city": "San Francisco" }
+query = {
+    "city": "San Francisco",
+    "aqi": true
+}
 
 # Using context manager ensures proper cleanup
 with AirqualityAPIClient("[YOUR_API_KEY]") as api:
@@ -209,7 +235,10 @@ from apiverve_airquality.apiClient import AirqualityAPIClient
 # Enable debug mode
 api = AirqualityAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "city": "San Francisco" }
+query = {
+    "city": "San Francisco",
+    "aqi": true
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -224,7 +253,10 @@ from apiverve_airquality.apiClient import AirqualityAPIClient
 
 api = AirqualityAPIClient("[YOUR_API_KEY]")
 
-query = { "city": "San Francisco" }
+query = {
+    "city": "San Francisco",
+    "aqi": true
+}
 
 try:
     result = api.execute(query)
