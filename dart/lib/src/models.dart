@@ -64,6 +64,10 @@ class AirqualityData {
   num? sulfurdioxide;
   num? usEpaIndex;
   num? gbDefraIndex;
+  num? aqi;
+  String? aqiCategory;
+  String? dominantPollutant;
+  AirqualityDataPollutantaqi? pollutantAqi;
   String? recommendation;
   String? city;
 
@@ -76,6 +80,10 @@ class AirqualityData {
     this.sulfurdioxide,
     this.usEpaIndex,
     this.gbDefraIndex,
+    this.aqi,
+    this.aqiCategory,
+    this.dominantPollutant,
+    this.pollutantAqi,
     this.recommendation,
     this.city,
   });
@@ -89,19 +97,53 @@ class AirqualityData {
       sulfurdioxide: json['sulfurdioxide'],
       usEpaIndex: json['usEpaIndex'],
       gbDefraIndex: json['gbDefraIndex'],
+      aqi: json['aqi'],
+      aqiCategory: json['aqiCategory'],
+      dominantPollutant: json['dominantPollutant'],
+      pollutantAqi: json['pollutantAqi'] != null ? AirqualityDataPollutantaqi.fromJson(json['pollutantAqi']) : null,
       recommendation: json['recommendation'],
       city: json['city'],
     );
 }
 
+class AirqualityDataPollutantaqi {
+  num? pm2_5;
+  num? pm10;
+  num? ozone;
+  num? carbonMonoxide;
+  num? sulfurdioxide;
+  num? nitrogenDioxide;
+
+  AirqualityDataPollutantaqi({
+    this.pm2_5,
+    this.pm10,
+    this.ozone,
+    this.carbonMonoxide,
+    this.sulfurdioxide,
+    this.nitrogenDioxide,
+  });
+
+  factory AirqualityDataPollutantaqi.fromJson(Map<String, dynamic> json) => AirqualityDataPollutantaqi(
+      pm2_5: json['pm2_5'],
+      pm10: json['pm10'],
+      ozone: json['ozone'],
+      carbonMonoxide: json['carbonMonoxide'],
+      sulfurdioxide: json['sulfurdioxide'],
+      nitrogenDioxide: json['nitrogenDioxide'],
+    );
+}
+
 class AirqualityRequest {
   String city;
+  bool? aqi;
 
   AirqualityRequest({
     required this.city,
+    this.aqi,
   });
 
   Map<String, dynamic> toJson() => {
       'city': city,
+      if (aqi != null) 'aqi': aqi,
     };
 }

@@ -50,6 +50,7 @@ final _formatPatterns = {
 ///
 /// Parameters:
 /// * [city] (required) - The city name for which you want to get the air quality data (e.g., New York)
+/// * [aqi] - Include the estimated 0-500 US AQI, its category, the dominant pollutant and the index for each pollutant
 class AirqualityClient {
   final String apiKey;
   final String baseUrl;
@@ -58,6 +59,7 @@ class AirqualityClient {
   /// Validation rules for parameters.
   static final Map<String, ValidationRule> _validationRules = <String, ValidationRule>{
     'city': ValidationRule(type: 'string', required: true),
+    'aqi': ValidationRule(type: 'boolean', required: false),
   };
 
   AirqualityClient(this.apiKey, {

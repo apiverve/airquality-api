@@ -1,6 +1,6 @@
 # Air Quality API - Dart/Flutter Client
 
-Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.
+Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, EPA and DEFRA index scores, and an estimated 0-500 US AQI with its category and dominant pollutant.
 
 [![pub package](https://img.shields.io/pub/v/apiverve_airquality.svg)](https://pub.dev/packages/apiverve_airquality)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,7 +13,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  apiverve_airquality: ^1.2.3
+  apiverve_airquality: ^1.2.4
 ```
 
 Then run:
@@ -34,7 +34,8 @@ void main() async {
 
   try {
     final response = await client.execute({
-      'city': 'San Francisco'
+      'city': 'San Francisco',
+      'aqi': true
     });
 
     print('Status: ${response.status}');
@@ -60,7 +61,18 @@ void main() async {
     "sulfurdioxide": 5.95,
     "usEpaIndex": 2,
     "gbDefraIndex": 2,
-    "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
+    "aqi": 65,
+    "aqiCategory": "Moderate",
+    "dominantPollutant": "pm2_5",
+    "pollutantAqi": {
+      "pm2_5": 65,
+      "pm10": 17,
+      "ozone": 4,
+      "carbonMonoxide": 3,
+      "sulfurdioxide": 3,
+      "nitrogenDioxide": 19
+    },
+    "recommendation": "The air quality in San Francisco is moderate. It is generally safe to go outside, but unusually sensitive individuals may experience health effects.",
     "city": "San Francisco"
   }
 }
