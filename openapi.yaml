@@ -5,7 +5,8 @@ info:
     Air Quality is an air pollution API that reports particulate pollution
     levels and health recommendations for any city or zip code. Look up PM2.5
     and PM10 concentrations to check current air conditions; paid plans add
-    ozone, toxic gases, and EPA index scores.
+    ozone, toxic gases, EPA and DEFRA index scores, and an estimated 0-500 US
+    AQI with its category and dominant pollutant.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -33,6 +34,15 @@ paths:
             The city name for which you want to get the air quality data (e.g.,
             New York)
           example: San Francisco
+        - name: aqi
+          in: query
+          schema:
+            type: boolean
+          required: false
+          description: >-
+            Include the estimated 0-500 US AQI, its category, the dominant
+            pollutant and the index for each pollutant
+          example: true
       responses:
         '200':
           description: Successful Response
@@ -62,9 +72,20 @@ paths:
                   sulfurdioxide: 5.95
                   usEpaIndex: 2
                   gbDefraIndex: 2
+                  aqi: 65
+                  aqiCategory: Moderate
+                  dominantPollutant: pm2_5
+                  pollutantAqi:
+                    pm2_5: 65
+                    pm10: 17
+                    ozone: 4
+                    carbonMonoxide: 3
+                    sulfurdioxide: 3
+                    nitrogenDioxide: 19
                   recommendation: >-
-                    The air quality in San Francisco is good. It is safe to go
-                    outside.
+                    The air quality in San Francisco is moderate. It is
+                    generally safe to go outside, but unusually sensitive
+                    individuals may experience health effects.
                   city: San Francisco
         '401':
           description: Your request was not authorized, or your API Key was invalid
