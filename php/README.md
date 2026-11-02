@@ -1,6 +1,6 @@
 # Air Quality API - PHP Package
 
-Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.
+Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, EPA and DEFRA index scores, and an estimated 0-500 US AQI with its category and dominant pollutant.
 
 ## Installation
 
@@ -27,7 +27,10 @@ use APIVerve\Airquality\Client;
 $client = new Client('YOUR_API_KEY');
 
 // Make a request
-$response = $client->execute(['city' => 'San Francisco']);
+$response = $client->execute([
+    'city' => 'San Francisco',
+    'aqi' => true
+]);
 
 // Print the response
 print_r($response);
@@ -42,7 +45,7 @@ use APIVerve\Airquality\Exceptions\APIException;
 use APIVerve\Airquality\Exceptions\ValidationException;
 
 try {
-    $response = $client->execute(['city' => 'San Francisco']);
+    $response = $client->execute(['city' => 'San Francisco', 'aqi' => true]);
     print_r($response['data']);
 } catch (ValidationException $e) {
     echo "Validation error: " . implode(', ', $e->getErrors());
@@ -77,7 +80,18 @@ $client = new Client(
     "sulfurdioxide": 5.95,
     "usEpaIndex": 2,
     "gbDefraIndex": 2,
-    "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
+    "aqi": 65,
+    "aqiCategory": "Moderate",
+    "dominantPollutant": "pm2_5",
+    "pollutantAqi": {
+      "pm2_5": 65,
+      "pm10": 17,
+      "ozone": 4,
+      "carbonMonoxide": 3,
+      "sulfurdioxide": 3,
+      "nitrogenDioxide": 19
+    },
+    "recommendation": "The air quality in San Francisco is moderate. It is generally safe to go outside, but unusually sensitive individuals may experience health effects.",
     "city": "San Francisco"
   }
 }

@@ -15,7 +15,7 @@ use APIVerve\Airquality\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['city' => 'San Francisco']);
+ * $response = $client->execute(['city' => 'San Francisco', 'aqi' => true]);
  * print_r($response);
  * ```
  *
@@ -34,7 +34,8 @@ class Client
      * Validation rules for parameters
      */
     private const VALIDATION_RULES = [
-        'city' => ['type' => 'string', 'required' => true]
+        'city' => ['type' => 'string', 'required' => true],
+        'aqi' => ['type' => 'boolean', 'required' => false]
     ];
 
     /**
