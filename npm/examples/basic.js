@@ -15,7 +15,8 @@ const api = new airqualityAPI({
 
 // Example query
 var query = {
-  city: "San Francisco"
+  city: "San Francisco",
+  aqi: false
 };
 
 // Make the API request using callback

@@ -30,7 +30,7 @@ class airqualityWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/airquality';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"city":{"type":"string","required":true}};
+        this.validationRules = {"city":{"type":"string","required":true},"aqi":{"type":"boolean","required":false,"default":false}};
     }
 
     /**

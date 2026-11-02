@@ -25,16 +25,29 @@ declare module '@apiverve/airquality' {
 
 
   interface AirQualityData {
+      pm25:              number | null;
+      pm10:              number | null;
+      carbonMonoxide:    number | null;
+      ozone:             number | null;
+      nitrogenDioxide:   number | null;
+      sulfurdioxide:     number | null;
+      usEpaIndex:        number | null;
+      gbDefraIndex:      number | null;
+      aqi:               number | null;
+      aqiCategory:       null | string;
+      dominantPollutant: null | string;
+      pollutantAqi:      PollutantAqi;
+      recommendation:    null | string;
+      city:              null | string;
+  }
+  
+  interface PollutantAqi {
       pm25:            number | null;
       pm10:            number | null;
-      carbonMonoxide:  number | null;
       ozone:           number | null;
-      nitrogenDioxide: number | null;
+      carbonMonoxide:  number | null;
       sulfurdioxide:   number | null;
-      usEpaIndex:      number | null;
-      gbDefraIndex:    number | null;
-      recommendation:  null | string;
-      city:            null | string;
+      nitrogenDioxide: number | null;
   }
 
   export default class airqualityWrapper {

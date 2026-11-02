@@ -1,6 +1,6 @@
 # Air Quality API
 
-Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, and EPA index scores.
+Air Quality is an air pollution API that reports particulate pollution levels and health recommendations for any city or zip code. Look up PM2.5 and PM10 concentrations to check current air conditions; paid plans add ozone, toxic gases, EPA and DEFRA index scores, and an estimated 0-500 US AQI with its category and dominant pollutant.
 
 [![npm version](https://img.shields.io/npm/v/@apiverve/airquality.svg)](https://www.npmjs.com/package/@apiverve/airquality)
 
@@ -57,7 +57,8 @@ Using the API is simple. All you have to do is make a request. The API will retu
 
 ```javascript
 var query = {
-  city: "San Francisco"
+  city: "San Francisco",
+  aqi: false
 };
 
 api.execute(query, function (error, data) {
@@ -77,7 +78,8 @@ You can also use promises to make requests. The API returns a promise that you c
 
 ```javascript
 var query = {
-  city: "San Francisco"
+  city: "San Francisco",
+  aqi: false
 };
 
 api.execute(query)
@@ -98,7 +100,8 @@ You can also use async/await to make requests. The API returns a promise that yo
 ```javascript
 async function makeRequest() {
     var query = {
-  city: "San Francisco"
+  city: "San Francisco",
+  aqi: false
 };
 
     try {
@@ -127,7 +130,18 @@ async function makeRequest() {
     "sulfurdioxide": 5.95,
     "usEpaIndex": 2,
     "gbDefraIndex": 2,
-    "recommendation": "The air quality in San Francisco is good. It is safe to go outside.",
+    "aqi": 65,
+    "aqiCategory": "Moderate",
+    "dominantPollutant": "pm2_5",
+    "pollutantAqi": {
+      "pm2_5": 65,
+      "pm10": 17,
+      "ozone": 4,
+      "carbonMonoxide": 3,
+      "sulfurdioxide": 3,
+      "nitrogenDioxide": 19
+    },
+    "recommendation": "The air quality in San Francisco is moderate. It is generally safe to go outside, but unusually sensitive individuals may experience health effects.",
     "city": "San Francisco"
   }
 }
