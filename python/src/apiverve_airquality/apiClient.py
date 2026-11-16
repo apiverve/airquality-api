@@ -24,7 +24,7 @@ class ValidationError(AirqualityAPIClientError):
 class AirqualityAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
-        "city": {"type": "string", "required": True},
+        "city": {"type": "string", "required": True, "maxLength": 100},
         "aqi": {"type": "boolean", "required": False, "default": False}
     }
 
