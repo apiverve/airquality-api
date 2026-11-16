@@ -11,7 +11,7 @@ namespace APIVerve.API.AirQuality
     public class AirQualityQueryOptions
     {
         /// <summary>
-        /// The city name for which you want to get the air quality data (e.g., New York)
+        /// The city name for which you want to get the air quality data (e.g., New York). A name shared by several places resolves to the best-known one (Delhi is Delhi, India); add a state, province or country after a comma to pick another (e.g., Portland, Maine or London, Ontario)
         /// </summary>
         [JsonProperty("city")]
         public string City { get; set; }
