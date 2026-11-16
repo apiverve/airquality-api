@@ -49,7 +49,7 @@ final _formatPatterns = {
 /// For more information, visit: https://apiverve.com/marketplace/airquality?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
-/// * [city] (required) - The city name for which you want to get the air quality data (e.g., New York)
+/// * [city] (required) - The city name for which you want to get the air quality data (e.g., New York). A name shared by several places resolves to the best-known one (Delhi is Delhi, India); add a state, province or country after a comma to pick another (e.g., Portland, Maine or London, Ontario) [maxLength: 100]
 /// * [aqi] - Include the estimated 0-500 US AQI, its category, the dominant pollutant and the index for each pollutant
 class AirqualityClient {
   final String apiKey;
@@ -58,7 +58,7 @@ class AirqualityClient {
 
   /// Validation rules for parameters.
   static final Map<String, ValidationRule> _validationRules = <String, ValidationRule>{
-    'city': ValidationRule(type: 'string', required: true),
+    'city': ValidationRule(type: 'string', required: true, maxLength: 100),
     'aqi': ValidationRule(type: 'boolean', required: false),
   };
 
