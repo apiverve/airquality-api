@@ -34,7 +34,7 @@ class Client
      * Validation rules for parameters
      */
     private const VALIDATION_RULES = [
-        'city' => ['type' => 'string', 'required' => true],
+        'city' => ['type' => 'string', 'required' => true, 'maxLength' => 100],
         'aqi' => ['type' => 'boolean', 'required' => false]
     ];
 
