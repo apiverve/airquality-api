@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'city' => { type: 'string', required: true }, 'aqi' => { type: 'boolean', required: false } }
+      VALIDATION_RULES = { 'city' => { type: 'string', required: true, max_length: 100 }, 'aqi' => { type: 'boolean', required: false } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {
